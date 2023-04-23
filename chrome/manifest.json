@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Enhancement Suite - #BlockTheBlue",
+  "description": "Lets you keep your timeline free of Twitter Blue users and allows you to revert all of the other stupid changes Elon made.",
+  "short_name": "Twitter Enhancement Suite",
+  "version": "0.1.0",
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+        "js": ["scripts/main.js"],
+        "matches": [
+            "https://twitter.com/*",
+            "https://www.twitter.com/*"
+        ],
+        "runAt": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "128": "icon-128.png"
+  }
+}

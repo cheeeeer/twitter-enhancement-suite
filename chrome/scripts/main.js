@@ -41,7 +41,7 @@ function fixNavBar(){
 function removeTweets(){
     let tweets = document.querySelectorAll('[data-testid="tweet"]')
     tweets.forEach((tweet)=>{
-        if (tweet.getInnerHTML().includes(blueCheck) && removeElonSimps===true){
+        if (tweet.getInnerHTML().includes(blueCheck) && removeElonSimps){
             return tweet.innerHTML = '';
         } else if (tweet.getInnerHTML().includes(promoted) && removeAds){
             return tweet.innerHTML = '';

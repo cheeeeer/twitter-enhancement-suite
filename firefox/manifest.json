@@ -5,26 +5,29 @@
   "short_name": "Twitter Enhancement Suite",
   "version": "0.1.0",
   "action": {
-    "default_popup": "options.html",
-    "default_icon": "icon-128.png"
+    "default_icon": "icon-128.png",
+    "default_popup": "options.html"
   },
+
   "content_scripts": [
     {
-        "js": ["scripts/main.js"],
-        "matches": [
-            "https://twitter.com/*",
-            "https://www.twitter.com/*"
-        ]
+      "matches": [
+        "https://twitter.com/*",
+        "https://www.twitter.com/*"
+      ],
+      "js": ["scripts/main.js"]
     }
   ],
   "permissions": [
     "storage"
   ],
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": false
-  },
+
   "icons": {
     "128": "icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cheerfultoe@gmail.com"
+    }
   }
 }

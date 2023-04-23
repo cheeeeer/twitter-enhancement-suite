@@ -12,7 +12,6 @@ const saveOptions = () => {
     const views = document.getElementById('views').checked;
     const bookmarks = document.getElementById('bookmarks').checked;
     const bookmarkButton = document.getElementById('bookmark-button').checked;
-    console.log(explore)
     chrome.storage.sync.set(
         {
             removeExplore: explore,

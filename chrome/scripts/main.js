@@ -8,32 +8,37 @@ function getSettings(){
         removeCommunities = items.removeCommunities;
         removeTwitterBlue = items.removeTwitterBlue;
         removeVerifiedOrganizations = items.removeVerifiedOrganizations;
-        
+
         removeAds = items.removeAds;
         removeElonSimps = items.removeElonSimps;
         removeMusk = items.removeMusk;
-        
+
         removeViews = items.removeViews;
         removeBookmarks = items.removeBookmarks;
         removeBookmarkButton = items.removeBookmarkButton;
-    })
-}
-function fixNavBar(){
-    let explore = document.querySelector('[href="/explore"]')
-    let communities = document.querySelector('[href="/' + document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > header > div > div > div > div.css-1dbjc4n.r-usiww2 > div > div > div.css-1dbjc4n.r-1wbh5a2.r-dnmrzs.r-1ny4l3l > div > div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wbh5a2 > div > div > div > span').innerText.replace("@",'') + '/communities"]')
-    let twitterBlue = document.querySelector('[href="/i/twitter_blue_sign_up"]')
-    let verifiedOrganizations = document.querySelector('[href="/i/verified-orgs-signup"]')
 
-    if (removeVerifiedOrganizations){
+    })
+    fixNavBar();
+    removeTweets();
+    removeViewsAndBookmarks();
+
+}
+function fixNavBar() {
+    let explore = document.querySelector('[href="/explore"]'),
+        communities = document.querySelector('[href="/' + document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wbh5a2 > div > div > div > span').innerText.replace("@", '') + '/communities"]'),
+        twitterBlue = document.querySelector('[href="/i/twitter_blue_sign_up"]'),
+        verifiedOrganizations = document.querySelector('[href="/i/verified-orgs-signup"]');
+
+    if (removeVerifiedOrganizations) {
         verifiedOrganizations.remove()
     }
-    if (removeTwitterBlue){
+    if (removeTwitterBlue) {
         twitterBlue.remove()
     }
-    if (removeExplore){
+    if (removeExplore) {
         explore.remove()
     }
-    if (removeCommunities){
+    if (removeCommunities) {
         communities.remove()
     }
 }
@@ -41,11 +46,11 @@ function fixNavBar(){
 function removeTweets(){
     let tweets = document.querySelectorAll('[data-testid="tweet"]')
     tweets.forEach((tweet)=>{
-        if (tweet.getInnerHTML().includes(blueCheck) && removeElonSimps){
+        if (tweet.innerHTML.includes(blueCheck) && removeElonSimps){
             return tweet.innerHTML = '';
-        } else if (tweet.getInnerHTML().includes(promoted) && removeAds){
+        } else if (tweet.innerHTML.includes(promoted) && removeAds){
             return tweet.innerHTML = '';
-        } else if (tweet.getInnerHTML().includes('href="/elonmusk"') && removeMusk){
+        } else if (tweet.innerHTML.includes('href="/elonmusk"') && removeMusk){
             return tweet.innerHTML = '';
         }
     })
@@ -54,31 +59,32 @@ function removeViewsAndBookmarks(){
     if (removeViews || removeBookmarkButton || removeBookmarks){
         let buttons = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-1h0z5md');
         buttons.forEach((button)=>{
-            if (removeViews && button.getInnerHTML().includes('M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z')){
+            if (removeViews && button.innerHTML.includes('M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z')){
                 button.remove();
-            } else if (removeBookmarkButton && button.getInnerHTML().includes('M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z')){
+            } else if (removeBookmarkButton && button.innerHTML.includes('M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z')){
                 button.remove();
             }
         })
-        if (removeViews && document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-14j79pv.r-1q142lx.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-s1qlax.r-qvutc0') != null){
-            document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-14j79pv.r-1q142lx.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-s1qlax.r-qvutc0').remove();
+        if (removeViews && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-14j79pv.r-1q142lx.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-s1qlax.r-qvutc0') != null){
+            document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-14j79pv.r-1q142lx.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-s1qlax.r-qvutc0').remove();
         }
-        if (removeViews && document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0') != null){
-            document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0').remove();
+        if (removeViews && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0') != null){
+            document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0').remove();
         }
-        if (removeBookmarks && document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)')){
-            document.querySelector('#react-root > div > div > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010 > main > div > div > div > div.css-1dbjc4n.r-14lw9ot.r-jxzhtn.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c > div > section > div > div > div:nth-child(1) > div > div > article > div > div > div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)').innerHTML = '';
+        if (removeBookmarks && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)')){
+            document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)').innerHTML = '';
         }
     }
 }
 
 new PerformanceObserver(() => {
     getSettings();
-    fixNavBar();
-    removeTweets();
-    removeViewsAndBookmarks();
+
 }).observe({type: 'largest-contentful-paint', buffered: true});
 
-document.addEventListener('scroll', ()=>{removeTweets(); removeViewsAndBookmarks()});
+document.addEventListener('scroll', ()=>{
+    removeTweets();
+    removeViewsAndBookmarks();
+});
 
 

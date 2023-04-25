@@ -79,7 +79,6 @@ function removeViewsAndBookmarks(){
 
 new PerformanceObserver(() => {
     getSettings();
-
 }).observe({type: 'largest-contentful-paint', buffered: true});
 
 document.addEventListener('scroll', ()=>{

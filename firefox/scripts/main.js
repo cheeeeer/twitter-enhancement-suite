@@ -76,6 +76,7 @@ function removeViewsAndBookmarks(){
         }
     }
 }
+
 window.addEventListener('load',  () => {
     getSettings();
 });

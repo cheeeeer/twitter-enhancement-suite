@@ -71,8 +71,8 @@ function removeViewsAndBookmarks(){
         if (removeViews && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0') != null){
             document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-1r5su4o > div > div.css-1dbjc4n.r-1b7u577 > div > div.css-901oao.r-18jsvk2.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0').remove();
         }
-        if (removeBookmarks && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)')){
-            document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(4)').innerHTML = '';
+        if (removeBookmarks && document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(5)')){
+            document.querySelector('div:nth-child(3) > div.css-1dbjc4n.r-18u37iz.r-1w6e6rj > div:nth-child(5)').innerHTML = '';
         }
     }
 }
